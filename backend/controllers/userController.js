@@ -1,6 +1,6 @@
 import { User } from "../models/userModel.js";
 import httpStatus from "http-status";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import crypto from "crypto";
 
 const login = async (req, res) => {
