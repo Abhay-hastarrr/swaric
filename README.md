@@ -2,7 +2,7 @@
 
 Welcome to **SwARic** – a modern, interactive web application crafted for seamless audio-visual experiences!  
 Built with the elegance of JavaScript, the style of CSS, and the structure of HTML, SwARic blends creativity with technology.  
-Let’s get you started in style! 🚀
+Let’s get you started in style! 
 
 ---
 
@@ -69,14 +69,14 @@ This will start the backend server, which handles all API requests, business log
 
 ---
 
-## 💡 Usage
+##  Usage
 
 - Open your browser and navigate to the frontend server's address (usually [http://localhost:3000](http://localhost:3000)).
 - Interact with the application—the frontend will communicate with the backend seamlessly to deliver the full SwARic experience.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! To get started:
 
@@ -91,10 +91,6 @@ Contributions are welcome! To get started:
 
 ---
 
-## 🧑‍💻 Author
 
-Made with ❤️ by [Abhay-hastarrr](https://github.com/Abhay-hastarrr)
-
----
 
 
