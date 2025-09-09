@@ -51,13 +51,13 @@ const Metaverse = () => {
 			}
 			if (args && args !== 0 && args !== 1) {
 				socketRef.current.emit('join-call', args);
-			} else if(tableAccess.current) {
+			} else if (tableAccess.current) {
 				socketRef.current.emit('join-call', tableAccess.current);
 			}
 		} catch (e) {
 			console.error("Error accessing user media:", e);
-			if(e == "NotAllowedError: Permission denied") {
-				if(!localVideoref.current) {
+			if (e == "NotAllowedError: Permission denied") {
+				if (!localVideoref.current) {
 					router('/');
 				}
 			}
@@ -195,7 +195,7 @@ const Metaverse = () => {
 				setCallStatus((prev) => {
 					if (!prev) {
 						socketRef.current.emit('video-event-on');
-						
+
 						console.log("Room id changed");
 						setTimeout(() => {
 							let room = socketIdRef.current < playerB.socketId ? socketIdRef.current + playerB.socketId : playerB.socketId + socketIdRef.current;
@@ -396,7 +396,7 @@ const Metaverse = () => {
 					// Stop player movement if no key is pressed
 					player.setVelocity(0);
 					player.anims.stop();
-					if(valueUpdate) {
+					if (valueUpdate) {
 						socketRef.current.emit('player-move', { socketId: socketIdRef.current, x: player.x, y: player.y });
 						socketRef.current.emit('player-move', { socketId: socketIdRef.current, x: player.x, y: player.y });
 					}
@@ -440,6 +440,8 @@ const Metaverse = () => {
 
 		// Cleanup on component unmount
 		return () => {
+			
+
 			try {
 				if (socketRef.current) {
 					console.log("Disconnecting and removing token...");
@@ -467,7 +469,7 @@ const Metaverse = () => {
 			if (localVideoref.current && localVideoref.current != null && localVideoref.current.srcObject !== null && localVideoref.current.srcObject !== undefined) {
 				socketRef.current.emit("remove-video", joinedTable);
 			} else {
-				if(!room && roomId.current) {
+				if (!room && roomId.current) {
 					socketRef.current.emit('video-event-off', (roomId.current));
 					setCallStatus(false);
 				}
@@ -486,6 +488,7 @@ const Metaverse = () => {
 		<GameEventVideo data={{ socketRef, localVideoref2, remoteVideoref2 }} />
 		<Video data={{ joinCall, localVideoref, remoteVideoref, socketRef, getPermissions }} />
 		<div className='game' style={{ position: 'fixed' }} ref={gameContainerRef} />
+		
 	</>
 };
 
