@@ -36,7 +36,7 @@ const login = async (req, res) => {
 }
 
 const register = async (req, res) => {
-    let {username, name, password} = req.body;
+    let {username, name, password, email} = req.body;
 
     try {
         let existingUser = await User.findOne({username});
@@ -47,13 +47,17 @@ const register = async (req, res) => {
 
         let hashPass = await bcrypt.hash(password, 10);
 
-        let user = new User({name, username, password : hashPass});
+        // Create user object with email only if it's provided
+        let userData = {name, username, password: hashPass};
+        if (email) userData.email = email;
+        
+        let user = new User(userData);
 
         await user.save();
 
-        res.status(httpStatus.CREATED).json({message : "User Registerd"});
+        res.status(httpStatus.CREATED).json({message : "User Registered"});
     } catch(e) {
-        res.status(500).json({message : `Something want wrong (${e})`});
+        res.status(500).json({message : `Something went wrong (${e})`});
     }
 }
 

@@ -19,7 +19,7 @@ function GameEventVideo({ data }) {
                 remoteVideoref2 = null;
             });
         } catch {
-            router('/game');
+            router('/');
         }
     }, 100);
 

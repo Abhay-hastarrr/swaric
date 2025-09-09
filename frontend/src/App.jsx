@@ -13,9 +13,9 @@ function App() {
         <AuthProvider>
 
           <Routes>
+            <Route path='/game' element={<Metaverse />} />
             <Route path='/' element={<LandingPage />} />
             <Route path='/auth' element={<Authentication />} />
-            <Route path='/game' element={<Metaverse/>} />
           </Routes>
 
         </AuthProvider>

@@ -28,6 +28,7 @@ export default function Authentication() {
     const [username, setUsername] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
     const [error, setError] = React.useState("");
     const [message, setMessage] = React.useState("");
 
@@ -47,9 +48,10 @@ export default function Authentication() {
                 // It already handles setting localStorage and navigation in AuthContext
             }
             if (formState === 1) {
-                let result = await handleRegister(name, username, password);
+                let result = await handleRegister(name, username, password, email);
                 console.log(result);
                 setUsername("");
+                setEmail("");
                 setMessage(result);
                 setOpen(true);
                 setError("");
@@ -99,17 +101,29 @@ export default function Authentication() {
                         </div>
 
                         <Box component="form" noValidate sx={{ mt: 1 }}>
-                            {formState === 1 ? <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="fullname"
-                                label="Full Name"
-                                name="fullname"
-                                value={name}
-                                autoFocus
-                                onChange={(e) => setName(e.target.value)}
-                            /> : <></>}
+                            {formState === 1 ? <>
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="fullname"
+                                    label="Full Name"
+                                    name="fullname"
+                                    value={name}
+                                    autoFocus
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    fullWidth
+                                    id="email"
+                                    label="Email (Optional)"
+                                    name="email"
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </> : <></>}
 
                             <TextField
                                 margin="normal"
