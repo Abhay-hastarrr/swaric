@@ -1,4 +1,4 @@
-# 🎶 SwARic
+#  SwARic
 
 Welcome to **SwARic** – a modern, interactive web application crafted for seamless audio-visual experiences!  
 Built with the elegance of JavaScript, the style of CSS, and the structure of HTML, SwARic blends creativity with technology.  
@@ -6,13 +6,13 @@ Let’s get you started in style! 🚀
 
 ---
 
-## ✨ Features
+##  Features
 
-- **⚡ Lightning-fast JS Frontend:** Smooth, responsive, and dynamic user experience.
-- **🎨 Custom CSS Magic:** Gorgeous layouts, themes, and transitions.
-- **🔗 Semantic HTML:** Accessible, SEO-friendly markup.
-- **🛠️ Modular Architecture:** Easy to extend or customize.
-- **📱 Responsive by Default:** Looks great on all devices.
+- ** Lightning-fast JS Frontend:** Smooth, responsive, and dynamic user experience.
+- ** Custom CSS Magic:** Gorgeous layouts, themes, and transitions.
+- ** Semantic HTML:** Accessible, SEO-friendly markup.
+- ** Modular Architecture:** Easy to extend or customize.
+- ** Responsive by Default:** Looks great on all devices.
 
 ---
 
@@ -30,6 +30,12 @@ cd swaric
 Install any dependencies required at the root level (if any):
 
 ```bash
+cd backend
+npm install
+```
+
+```bash
+cd frontend
 npm install
 ```
 
@@ -42,7 +48,6 @@ To run the application locally, start both servers in development mode using the
 
 ```bash
 cd frontend
-npm install
 npm run dev
 ```
 
@@ -54,7 +59,6 @@ Open a new terminal window/tab, then run:
 
 ```bash
 cd backend
-npm install
 npm run dev
 ```
 
@@ -87,17 +91,10 @@ Contributions are welcome! To get started:
 
 ---
 
-## 📄 License
-
-MIT License  
-See [`LICENSE`](LICENSE) for details.
-
----
-
 ## 🧑‍💻 Author
 
 Made with ❤️ by [Abhay-hastarrr](https://github.com/Abhay-hastarrr)
 
 ---
 
-> 🎧 **Plug in, play, and code with rhythm. SwARic – where sound meets code!**
+
