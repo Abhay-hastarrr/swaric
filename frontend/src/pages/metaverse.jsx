@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Phaser from 'phaser';
 import withAuth from "../utils/withAuth.jsx"
 import io from "socket.io-client";
-import { createNewPlayer, playerMove, userDisconnected } from '../../modules.js';
+import { createNewPlayer, playerMove, userDisconnected } from '../modules.js';
 import Video from '../controllers/video.jsx';
 import GameEventVideo from '../controllers/gameEventVideo.jsx';
 import { useNavigate } from 'react-router-dom';
@@ -282,10 +282,10 @@ const Metaverse = () => {
 			tables = this.physics.add.staticGroup();
 
 			// Generate rows of tables for seating areas
-			buildTables(this, 544, 270, 10, tableWidth, 3);
-			buildTables(this, 765, 270, 10, tableWidth, 3);
-			buildTables(this, 544, 420, 10, tableWidth, 3);
-			buildTables(this, 765, 420, 10, tableWidth, 3);
+			buildTables(544, 270, 10, tableWidth, 3);
+			buildTables(765, 270, 10, tableWidth, 3);
+			buildTables(544, 420, 10, tableWidth, 3);
+			buildTables(765, 420, 10, tableWidth, 3);
 
 			// Create border boundaries around the screen edges
 			platforms.create(0, 0, 'border').setScale(10, 1).refreshBody(); // Top border
@@ -431,9 +431,7 @@ const Metaverse = () => {
 		});
 
 		// Helper function to create a row of tables
-		function buildTables(scene, x, y, distance, tableWidth, n) {
-			if (!tables) return; // Guard clause to prevent errors if tables is not initialized
-			
+		function buildTables(x, y, distance, tableWidth, n) {
 			for (let i = 0; i < n; i++) {
 				let table = tables.create(x + (i * (tableWidth + distance)), y, 'table').setScale(0.22, 0.1).refreshBody();
 				table.id = "Table " + ++tableId;

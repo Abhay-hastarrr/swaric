@@ -28,7 +28,7 @@ function Video({ data }) {
                 remoteVideoref = null;
             })
         } catch {
-            router('/');
+            router('/game');
         }
     }, 100);
     

@@ -29,35 +29,16 @@ export const AuthProvider = ({ children }) => {
 
     const router = useNavigate();
 
-    const handleRegister = async (name, username, password, email) => {
+    const handleRegister = async (name, username, password) => {
         try {
             let request = await client.post("/register", {
                 name: name,
                 username: username,
-                password: password,
-                email: email || null // Include email if provided, otherwise null
+                password: password
             })
 
 
             if (request.status === httpStatus.CREATED) {
-                // After successful registration, automatically log the user in
-                try {
-                    let loginRequest = await client.post("/login", {
-                        username: username,
-                        password: password
-                    });
-                    
-                    if (loginRequest.status === httpStatus.OK) {
-                        localStorage.setItem("token", loginRequest.data.token);
-                        localStorage.setItem("name", loginRequest.data.name);
-                        router("/"); // Redirect to homepage
-                        return "Registration successful! Redirecting...";
-                    }
-                } catch (loginErr) {
-                    console.error('Auto-login after registration failed:', loginErr);
-                    // If auto-login fails, still return success message for registration
-                    return request.data.message;
-                }
                 return request.data.message;
             }
         } catch (err) {
@@ -79,7 +60,7 @@ export const AuthProvider = ({ children }) => {
             if (request.status === httpStatus.OK) {
                 localStorage.setItem("token", request.data.token);
                 localStorage.setItem("name", request.data.name);
-                router("/") // Redirect to homepage
+                router("/game")
             }
         } catch (err) {
             console.error('Login error details:', err);
@@ -91,14 +72,8 @@ export const AuthProvider = ({ children }) => {
     }
 
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("name");
-        router("/landing");
-    }
-
     const data = {
-        userData, setUserData, handleRegister, handleLogin, handleLogout
+        userData, setUserData, handleRegister, handleLogin
     }
 
     return (
