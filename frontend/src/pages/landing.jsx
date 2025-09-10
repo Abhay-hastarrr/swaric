@@ -152,9 +152,9 @@ export default function Landing() {
             <div className="hero-container">
                 <div className="hero-content">
                     <h1 className="hero-title">
-                        <span className="highlight">Connect</span> with your
+                        <span className="highlight">Redefining</span> Audio-Visual
                         <br />
-                        <span className="gradient-text">loved ones</span>
+                        <span className="gradient-text">Communication</span>
                     </h1>
                     
                     <p className="hero-subtitle">
